@@ -3,28 +3,19 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>EnergyCo - Página Inicial</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
   <div class="container">
-    <h2>Login</h2>
-    <form id="login-form">
-      <input id="login-username" type="text" placeholder="Username" required />
-      <input id="login-password" type="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
-    <p>Não tens conta? <button id="to-register" class="link-btn">Regista-te aqui</button></p>
+    <button id="btnCliente">Entrar como Cliente</button>
+    <button id="btnTecnico">Entrar como Tecnico</button>
+    <button id="btnRegisto">Registar</button>
   </div>
 
-  <script src="script.js"></script>
-  <script>
-    document.getElementById('to-register').addEventListener('click', () => {
-      window.location.href = 'register.html';
-    });
-  </script>
+  <script src="js/index.js" defer></script>
 </body>
 
 </html>

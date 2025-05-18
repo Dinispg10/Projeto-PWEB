@@ -1,0 +1,29 @@
+.register-box {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 0 15px #00ffd544;
+  margin: 50px auto;
+}
+
+.register-box h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #00ffd5;
+}
+
+.register-box input,
+.register-box select {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.register-box button {
+  width: 100%;
+  margin-top: 1rem;
+}
