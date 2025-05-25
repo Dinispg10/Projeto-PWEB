@@ -4,8 +4,8 @@ window.onload = () => {
   const nomeCliente = sessionStorage.getItem('nomeCliente');
 
   if (!instalacaoId || !clienteId || !nomeCliente) {
-    alert('Dados da instalação não encontrados. Volte para a página anterior.');
-    window.location.href = 'index.html'; 
+    alert('Dados da instalação não encontrados. Faça Login');
+    window.location.href = 'loginRegisto.html'; 
     return;
   }
 

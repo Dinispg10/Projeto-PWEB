@@ -1,7 +1,95 @@
-.page-content {
-  padding: 2rem;
+/* tecnico.css */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f6f5f7;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.page-content h2 {
-  color: #00ffd5;
+.page-content {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h2#mensaem {
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  color: #FF4B2B;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #FF4B2B;
+  background-color: #FF4B2B;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 12px 35px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e03e21;
+  border-color: #e03e21;
+}
+
+#listaPendentes {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+}
+
+#listaPendentes h3 {
+  margin-top: 0;
+  color: #FF4B2B;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+#instalacoesLista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#instalacoesLista li {
+  background: #f0f0f0;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border-left: 5px solid #FF4B2B;
+  font-weight: 500;
+  color: #444;
+}
+
+#instalacoesLista li:hover {
+  background: #ffe6e1;
+}
+
+@media (max-width: 640px) {
+  .page-content, #listaPendentes {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
 }

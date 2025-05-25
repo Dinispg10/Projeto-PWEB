@@ -4,7 +4,7 @@ window.onload = () => {
 
   if (!token || role !== 'cliente') {
     alert('Precisa de fazer login como cliente para acessar esta página.');
-    window.location.href = 'login.html';
+    window.location.href = 'loginRegisto.html';
   }
 };
 

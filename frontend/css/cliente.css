@@ -1,116 +1,72 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* cliente.css */
 
-/* Corpo da página centralizado */
 body {
-  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background: #f6f5f7;
+  margin: 0;
+  padding: 30px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
-  padding: 20px;
+  align-items: flex-start;
+  min-height: 100vh;
+  color: #333;
 }
 
-/* Container principal */
-.instalacao-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 40px 50px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 128, 255, 0.7);
-  width: 360px;
-  max-width: 100%;
+.page-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 10px 20px rgba(255, 75, 43, 0.2);
   text-align: center;
 }
 
-/* Título */
-.instalacao-box h1 {
-  margin-bottom: 25px;
+h1, h2 {
+  color: #FF4B2B;
+  margin-bottom: 20px;
   font-weight: 700;
-  font-size: 1.8rem;
 }
 
-/* Inputs */
-input[type="text"],
-input[type="number"] {
-  width: 100%;
-  padding: 12px 15px;
-  margin: 15px 0;
+#mensagem {
+  margin-bottom: 40px;
+  font-size: 28px;
+}
+
+button {
+  background-color: #FF4B2B;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  color: white;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 15px 10px;
   transition: background-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Botão */
-button {
-  width: 100%;
-  padding: 14px;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-top: 20px;
-  box-shadow: 0 0 10px #00bfff;
-}
-
 button:hover {
-  background: #005fcc;
-  box-shadow: 0 0 15px #00bfff;
+  background-color: #e03e21;
 }
 
-/* Mensagem de boas-vindas */
-#mensagem {
-  margin-bottom: 20px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #aad4ff;
-}
-
-/* Container das instalações */
 #instalacoesContainer {
-  margin-top: 30px;
+  margin-top: 25px;
+  min-height: 100px;
+  border: 2px solid #FF4B2B;
+  border-radius: 8px;
+  padding: 15px;
+  background: #fff0ef;
+  color: #d0421e;
   text-align: left;
   max-height: 300px;
   overflow-y: auto;
 }
 
-/* Cada instalação */
-.instalacao {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px 20px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+button:last-of-type {
+  background-color: #666;
 }
 
-.instalacao p {
-  margin-bottom: 8px;
-  font-size: 0.95rem;
-}
-
-.instalacao a {
-  color: #00bfff;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.instalacao a:hover {
-  text-decoration: underline;
+button:last-of-type:hover {
+  background-color: #444;
 }

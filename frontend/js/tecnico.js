@@ -4,9 +4,13 @@ window.onload = async () => {
 
   if (!token || role !== 'tecnico') {
     alert('Precisa de fazer login como técnico para acessar esta página.');
-    window.location.href = 'login.html';
+    window.location.href = 'loginRegisto.html';
     return;
   }
+
+  
+  const username = sessionStorage.getItem('username');
+  document.getElementById('mensagem').textContent = `Bem-vindo, ${username}!`;
 
   try {
     const res = await fetch('http://localhost:3000/api/instalacoes/pendentes', {
@@ -51,5 +55,5 @@ function abrirCertificado(instalacaoId, clienteId, nomeCliente) {
 
 function logout() {
   sessionStorage.clear();
-  window.location.href = 'login.html';
+  window.location.href = 'loginRegisto.html';
 }

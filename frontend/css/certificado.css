@@ -1,64 +1,77 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #e6f2ff;
+  font-family: 'Montserrat', sans-serif;
+  background: #f6f5f7;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
+  color: #333;
 }
 
 .container {
   background: #fff;
   padding: 25px 40px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 102, 204, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(255, 75, 43, 0.2);
   width: 400px;
   text-align: center;
 }
 
 h1 {
   margin-bottom: 25px;
-  color: #0059b3;
+  color: #FF4B2B;
+  font-weight: 700;
 }
 
 label {
   display: block;
   margin: 15px 0 6px;
   text-align: left;
-  font-weight: bold;
-  color: #003366;
+  font-weight: 600;
+  color: #d0421e;
 }
 
 input[type="text"],
 input[type="file"] {
   width: 100%;
   padding: 10px;
-  border: 1.5px solid #0059b3;
-  border-radius: 5px;
+  border: 2px solid #FF4B2B;
+  border-radius: 8px;
   box-sizing: border-box;
   font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+  outline: none;
+  border-color: #e03e21;
+  background: #fff0ef;
 }
 
 button {
   margin-top: 20px;
   padding: 12px 20px;
-  background-color: #007acc;
+  background-color: #FF4B2B;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
   width: 100%;
   font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #005f99;
+  background-color: #e03e21;
 }
 
 #msg {
   margin-top: 20px;
-  font-weight: bold;
-  color: green;
+  font-weight: 700;
+  color: #d0421e;
 }

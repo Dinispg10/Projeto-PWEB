@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!token || role !== 'cliente') {
     alert('Acesso negado. Faça login como cliente.');
-    window.location.href = 'index.html';
+    window.location.href = 'loginRegisto.html';
     return;
   }
 
@@ -82,5 +82,5 @@ async function fetchInstalacoes() {
 
 function logout() {
   sessionStorage.clear();
-  window.location.href = 'index.html';
+  window.location.href = 'loginRegisto.html';
 }
