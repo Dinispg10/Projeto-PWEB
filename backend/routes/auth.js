@@ -1,60 +1,57 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User'); // Modelo mongoose do utilizador
+const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
+  const { username, password, role } = req.body;
+
   try {
-    const { username, password, role } = req.body;
-
-    if (!username || !password || !role) {
-      return res.status(400).json({ message: 'Todos os campos são obrigatórios' });
-    }
-
-    // Verifica se já existe o username
     const existingUser = await User.findOne({ username });
     if (existingUser) {
-      return res.status(400).json({ message: 'Username já existe' });
+      return res.status(409).json({ message: 'Utilizador já existe' });
     }
 
-    // Cria e guarda o novo utilizador
-    const newUser = new User({ username, password, role });
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    const newUser = new User({
+      username,
+      password: hashedPassword,
+      role
+    });
+
     await newUser.save();
 
-    res.status(201).json({ message: 'Utilizador registado com sucesso!' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erro no servidor' });
+    res.status(201).json({ message: 'Utilizador registado com sucesso' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Erro no registo' });
   }
 });
 
-module.exports = router;
-
 // POST /api/auth/login
 router.post('/login', async (req, res) => {
-  const { username, password, role } = req.body;
+  const { username, password } = req.body;
 
-  // procura utilizador no MongoDB
-  const user = await User.findOne({ username, role });
-
+  const user = await User.findOne({ username });
   if (!user) {
     return res.status(401).json({ message: 'Credenciais inválidas' });
   }
 
-  // verifica password (ajusta conforme usas hash ou texto simples)
-  if (user.password !== password) {
+  const validPassword = await bcrypt.compare(password, user.password);
+  if (!validPassword) {
     return res.status(401).json({ message: 'Credenciais inválidas' });
   }
 
-  // gera token JWT
   const token = jwt.sign(
     { id: user._id, role: user.role },
     process.env.JWT_SECRET,
     { expiresIn: '1h' }
   );
 
-  // envia resposta com token
   res.json({
     message: 'Login bem-sucedido',
     user: {

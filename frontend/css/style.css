@@ -14,7 +14,6 @@ body {
   align-items: center;
   /* centra verticalmente */
   background: #0f2027;
-  /* azul escuro - podes mudar para tema energia */
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;

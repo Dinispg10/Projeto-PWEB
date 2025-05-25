@@ -4,27 +4,22 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value.trim();
 
-  // Obtém role da query string
-  const urlParams = new URLSearchParams(window.location.search);
-  const role = urlParams.get('role');
-
-  if (!role) {
-    alert('Tipo de utilizador não especificado');
-    return;
-  }
-
   try {
     const response = await fetch('http://localhost:3000/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password, role }),
+      body: JSON.stringify({ username, password }),
     });
 
     const data = await response.json();
+    console.log('Resposta do servidor:', data);
 
     if (response.ok) {
-      // Guarda o token no sessionStorage
-      sessionStorage.setItem('token', data.token);
+      const token = data.token;
+      const role = data.user.role;
+      const username = data.user.username;
+
+      sessionStorage.setItem('token', token);
       sessionStorage.setItem('role', role);
       sessionStorage.setItem('username', username);
 
@@ -32,15 +27,14 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         window.location.href = 'cliente.html';
       } else if (role === 'tecnico') {
         window.location.href = 'tecnico.html';
+      } else {
+        alert('Tipo de utilizador desconhecido: ' + role);
       }
     } else {
-      alert(data.error || 'Erro no login');
+      alert(data.message || 'Erro no login');
     }
   } catch (error) {
-    alert('Erro ao comunicar com o servidor');
-    console.error(error);
+    console.error('Erro ao comunicar com o servidor:', error);
+    alert('Erro ao comunicar com o servidor. Verifique se o servidor está ativo.');
   }
 });
-
-
-

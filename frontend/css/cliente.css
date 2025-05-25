@@ -1,7 +1,116 @@
-.page-content {
-  padding: 2rem;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.page-content h2 {
-  color: #00ffd5;
+/* Corpo da página centralizado */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Container principal */
+.instalacao-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 128, 255, 0.7);
+  width: 360px;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Título */
+.instalacao-box h1 {
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Botão */
+button {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0 0 10px #00bfff;
+}
+
+button:hover {
+  background: #005fcc;
+  box-shadow: 0 0 15px #00bfff;
+}
+
+/* Mensagem de boas-vindas */
+#mensagem {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #aad4ff;
+}
+
+/* Container das instalações */
+#instalacoesContainer {
+  margin-top: 30px;
+  text-align: left;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Cada instalação */
+.instalacao {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+}
+
+.instalacao p {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.instalacao a {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.instalacao a:hover {
+  text-decoration: underline;
 }

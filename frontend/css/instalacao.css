@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #e0f7fa;
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+input,
+button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  background: #00796b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #004d40;
+}
+
+.msg {
+  margin-top: 15px;
+  font-weight: bold;
+}

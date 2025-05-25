@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registo de Certificado - Técnico</title>
+  <link rel="stylesheet" href="css/certificado.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Registo de Certificado pelo Técnico</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label for="userId">ID do Cliente</label>
+      <input type="text" id="userId" name="userId" readonly required />
+
+      <label for="nomeCliente">Nome do Cliente</label>
+      <input type="text" id="nomeCliente" name="nomeCliente" readonly required />
+
+      <label for="certificado">Upload do Certificado (.pdf)</label>
+      <input type="file" id="certificado" name="certificado" accept=".pdf" required />
+
+      <input type="hidden" id="instalacaoId" name="instalacaoId" />
+
+      <button type="submit">Enviar Certificado</button>
+      <button onclick="paginainicial()">Pagina Inicial</button>
+    </form>
+    <div id="msg"></div>
+  </div>
+
+  <script src="js/certificado.js"></script>
+</body>
+
+</html>
