@@ -22,4 +22,6 @@ const instalacaoSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('Instalacoes', instalacaoSchema);
+module.exports = mongoose.model('Instalacao', instalacaoSchema, 'instalacoes');
+
+

@@ -8,5 +8,5 @@ const CertificadoSchema = new mongoose.Schema({
   dataUpload: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('certificados', CertificadoSchema);
+module.exports = mongoose.model('Certificado', CertificadoSchema);
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Instalacao = require('../models/Instalacao');
+const Certificado = require('../models/Certificado');
 const authMiddleware = require('../middleware/authMiddleware'); // o teu middleware
 
 function autenticarCliente(req, res, next) {
@@ -43,17 +44,20 @@ router.post('/', authMiddleware, async (req, res) => {
     res.status(500).json({ error: 'Erro interno do servidor' });
   }
 });
-
 router.get('/', authMiddleware, async (req, res) => {
   try {
     const clienteId = req.user.id;
-    const instalacoes = await Instalacao.find({ clienteId });
+    const instalacoes = await Instalacao.find({ clienteId })
+      .populate('certificadoId'); // tenta popular
+
     res.json(instalacoes);
   } catch (err) {
-    console.error(err);
+    console.error("ERRO AO OBTER INSTALAÇÕES:", err); // <-- isto é essencial
     res.status(500).json({ error: 'Erro ao obter instalações.' });
   }
 });
+
+
 
 router.get('/pendentes', authMiddleware, async (req, res) => {
   try {
