@@ -19,21 +19,22 @@ router.post('/', authMiddleware, async (req, res) => {
       return res.status(400).json({ error: 'Campos obrigatórios em falta' });
     }
 
-    const novaInstalacao = new Instalacao({
-      clienteId: req.user.id,
-      dataInstalacao: new Date(),
-      localizacao: {
-        endereco: localizacao.endereco
-      },
-      dadosTecnicos: {
-        tipo: dadosTecnicos.tipo,
-        potencia: dadosTecnicos.potencia,
-        numPaineis: dadosTecnicos.numPaineis,
-        fabricante: dadosTecnicos.fabricante,
-        modelo: dadosTecnicos.modelo
-      },
-      status: 'pendente'
-    });
+const novaInstalacao = new Instalacao({
+  clienteId: req.user._id,
+  dataInstalacao: new Date(),
+  localizacao: {
+    endereco: localizacao.endereco
+  },
+  dadosTecnicos: {
+    tipo: dadosTecnicos.tipo,
+    potencia: dadosTecnicos.potencia,
+    numPaineis: dadosTecnicos.numPaineis,
+    fabricante: dadosTecnicos.fabricante,
+    modelo: dadosTecnicos.modelo
+  },
+  status: 'pendente'
+});
+
 
     await novaInstalacao.save();
 
@@ -46,7 +47,7 @@ router.post('/', authMiddleware, async (req, res) => {
 });
 router.get('/', authMiddleware, async (req, res) => {
   try {
-    const clienteId = req.user.id;
+    const clienteId = req.user._id;
     const instalacoes = await Instalacao.find({ clienteId })
       .populate('certificadoId'); // tenta popular
 

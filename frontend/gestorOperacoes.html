@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Área do Gestor Operações</title>
+  <link rel="stylesheet" href="css/gestorOperacoes.css" />
+</head>
+
+<body>
+  <div class="page-content">
+    <h2 id="mensagem">Bem-vindo, Gestor Operações!</h2>
+    <h3>Clientes com Certificado Validado</h3>
+    <select id="clientesSelect">
+      <option value="">Selecione um cliente</option>
+    </select>
+    <button id="btnGerarLeitura" disabled onclick="gerarLeituraMock()">Gerar Leitura Mock</button>
+    <h3>Leituras do Cliente</h3>
+    <div id="leiturasLista">Selecione um cliente para ver as leituras.</div>
+    <button id="btnLogout" onclick="logout()">Sair</button>
+  </div>
+<script src="js/gestor.js"></script>
+</body>
+
+</html>

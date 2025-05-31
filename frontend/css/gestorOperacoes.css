@@ -1,0 +1,110 @@
+/* gestor-operacoes.css */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f6f5f7;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.page-content {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#mensagem {
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  color: #FF4B2B;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #FF4B2B;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 12px 35px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e03e21;
+}
+
+#leiturasLista {
+  background: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.1);
+  padding: 20px 30px;
+  text-align: left;
+  max-height: 400px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.leitura-card {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border-left: 5px solid #FF4B2B;
+  font-weight: 500;
+  color: #444;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.leitura-card:hover {
+  background: #f9f9f9;
+}
+
+.leitura-card.positivo {
+  border-left-color: #28a745; /* Verde */
+}
+
+.leitura-card.zero {
+  border-left-color: #dc3545; /* Vermelho */
+}
+
+
+#leiturasLista div:hover {
+  background: #ffe6e100;
+}
+
+@media (max-width: 640px) {
+  .page-content, #leiturasLista {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+/* Botão "Sair" diferente dos outros */
+button#btnLogout {
+  background-color: #666;
+  margin-top: 30px; /* espaçamento para afastar dos conteúdos acima */
+}
+
+button#btnLogout:hover {
+  background-color: #444;
+}
+

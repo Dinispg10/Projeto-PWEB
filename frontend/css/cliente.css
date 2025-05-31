@@ -1,5 +1,6 @@
 /* cliente.css */
 
+/* Reset e fontes */
 body {
   font-family: 'Montserrat', sans-serif;
   background: #f6f5f7;
@@ -12,6 +13,7 @@ body {
   color: #333;
 }
 
+/* Container principal */
 .page-content {
   background: #fff;
   padding: 40px;
@@ -22,6 +24,7 @@ body {
   text-align: center;
 }
 
+/* Títulos */
 h1, h2 {
   color: #FF4B2B;
   margin-bottom: 20px;
@@ -33,6 +36,7 @@ h1, h2 {
   font-size: 28px;
 }
 
+/* Botões */
 button {
   background-color: #FF4B2B;
   border: none;
@@ -50,7 +54,9 @@ button:hover {
   background-color: #e03e21;
 }
 
-#instalacoesContainer {
+/* Container das instalações e leituras */
+#instalacoesContainer,
+#leiturasContainer {
   margin-top: 25px;
   min-height: 100px;
   border: 2px solid #FF4B2B;
@@ -63,6 +69,7 @@ button:hover {
   overflow-y: auto;
 }
 
+/* Botão "Sair" diferente dos outros */
 button:last-of-type {
   background-color: #666;
 }

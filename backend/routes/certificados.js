@@ -32,7 +32,7 @@ router.post('/:id', authMiddleware, upload.single('certificado'), async (req, re
 
     // Cria documento Certificado
     const certificado = new Certificado({
-      tecnicoId: req.user.id,
+      tecnicoId: req.user._id,
       clienteId: instalacao.clienteId,
       filename: req.file.filename,
       path: `/uploads/certificados/${req.file.filename}`

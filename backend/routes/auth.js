@@ -47,19 +47,21 @@ router.post('/login', async (req, res) => {
   }
 
   const token = jwt.sign(
-    { id: user._id, role: user.role },
+    { _id: user._id.toString(), role: user.role },
     process.env.JWT_SECRET,
     { expiresIn: '1h' }
   );
 
   res.json({
-    message: 'Login bem-sucedido',
-    user: {
-      username: user.username,
-      role: user.role
-    },
-    token
-  });
+  message: 'Login bem-sucedido',
+  user: {
+    _id: user._id.toString(),  
+    username: user.username,
+    role: user.role
+  },
+  token
 });
+});
+
 
 module.exports = router;

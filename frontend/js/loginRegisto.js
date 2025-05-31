@@ -35,11 +35,15 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('role', role);
       sessionStorage.setItem('username', data.user.username);
+      // Corrigido aqui: usar data.user._id para o userId
+      sessionStorage.setItem('userId', data.user._id);
 
       if (role === 'cliente') {
         window.location.href = 'cliente.html';
       } else if (role === 'tecnico') {
         window.location.href = 'tecnico.html';
+      } else if (role === 'gestorOperacoes') {
+        window.location.href = 'gestorOperacoes.html';
       } else {
         alert('Tipo de utilizador desconhecido.');
       }
@@ -52,6 +56,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   }
 });
 
+// REGISTO
 document.getElementById('registerForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -87,11 +92,14 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
         sessionStorage.setItem('token', loginData.token);
         sessionStorage.setItem('role', loginData.user.role);
         sessionStorage.setItem('username', loginData.user.username);
+        sessionStorage.setItem('userId', loginData.user._id);
 
         if (loginData.user.role === 'cliente') {
           window.location.href = 'cliente.html';
         } else if (loginData.user.role === 'tecnico') {
           window.location.href = 'tecnico.html';
+        } else if (loginData.user.role === 'gestorOperacoes') {
+          window.location.href = 'gestorOperacoes.html';
         } else {
           alert('Tipo de utilizador desconhecido.');
         }
