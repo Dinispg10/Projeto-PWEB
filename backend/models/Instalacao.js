@@ -13,7 +13,7 @@ const instalacaoSchema = new mongoose.Schema({
     fabricante: { type: String, required: true },
     modelo: { type: String, required: true }
   },
-  status: { type: String, enum: ['pendente', 'validado', 'rejeitado'], default: 'pendente' },
+  status: { type: String, enum: ['pendente', 'validado'], default: 'pendente' },
   tecnicoId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   certificadoId: { type: mongoose.Schema.Types.ObjectId, ref: 'Certificado' },
   certificadoPath: { type: String }

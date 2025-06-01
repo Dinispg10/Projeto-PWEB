@@ -3,12 +3,12 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const Instalacao = require('../models/Instalacao');
-const Certificado = require('../models/Certificado');  // Importa o modelo Certificado
+const Certificado = require('../models/Certificado');  
 const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
 
-// Cria pasta uploads se não existir
+
 const uploadPath = path.join(__dirname, '../uploads/certificados');
 fs.mkdirSync(uploadPath, { recursive: true });
 
@@ -30,7 +30,7 @@ router.post('/:id', authMiddleware, upload.single('certificado'), async (req, re
     const instalacao = await Instalacao.findById(req.params.id);
     if (!instalacao) return res.status(404).json({ msg: 'Instalação não encontrada' });
 
-    // Cria documento Certificado
+
     const certificado = new Certificado({
       tecnicoId: req.user._id,
       clienteId: instalacao.clienteId,
@@ -40,7 +40,7 @@ router.post('/:id', authMiddleware, upload.single('certificado'), async (req, re
 
     await certificado.save();
 
-    // Atualiza a instalação com status, certificadoId e técnico
+ 
     instalacao.status = 'validado';
     instalacao.certificadoId = certificado._id;
     instalacao.tecnicoId = req.user._id;

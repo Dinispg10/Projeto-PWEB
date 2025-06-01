@@ -4,16 +4,15 @@ const Leitura = require('../models/Leitura');
 const Cliente = require('../models/User'); 
 const Instalacao = require('../models/Instalacao');
 const authMiddleware = require('../middleware/authMiddleware');
-const checkRole = require('../middleware/checkRole');
 
 
-// Gerar leitura mock com créditos acumulativos
-router.post('/leituras/mock', authMiddleware, checkRole('gestorOperacoes'), async (req, res) => {
+
+router.post('/leituras/mock', authMiddleware, async (req, res) => {
   try {
     const { clienteId } = req.body;
     if (!clienteId) return res.status(400).json({ msg: 'ClienteId é obrigatório' });
 
-    // Chamar API mock para obter produção e consumo
+ 
     const response = await fetch(`http://localhost:3001/mock-data/${clienteId}`);
     if (!response.ok) throw new Error('Erro ao chamar API mock');
     const data = await response.json();
@@ -21,11 +20,11 @@ router.post('/leituras/mock', authMiddleware, checkRole('gestorOperacoes'), asyn
     const producao = data.producao;
     const gastos = data.consumo;
 
-    // Buscar última leitura para obter créditos acumulados
+   
     const ultimaLeitura = await Leitura.findOne({ cliente: clienteId }).sort({ data: -1 });
     const creditosAnteriores = ultimaLeitura ? ultimaLeitura.creditos : 0;
 
-    // Calcular saldo atual e novos créditos acumulados
+ 
     const saldoAtual = producao - gastos;
     const creditosAtualizados = +(Math.max(creditosAnteriores + saldoAtual, 0)).toFixed(2);
 
@@ -48,7 +47,7 @@ router.post('/leituras/mock', authMiddleware, checkRole('gestorOperacoes'), asyn
 });
 
 // Listar todas as leituras de um cliente (com validação de acesso)
-router.get('/leituras/:clienteId', authMiddleware, checkRole(['gestorOperacoes', 'cliente']), async (req, res) => {
+router.get('/leituras/:clienteId', authMiddleware, async (req, res) => {
   try {
     const clienteIdParam = req.params.clienteId;
     const user = req.user;
@@ -68,7 +67,7 @@ router.get('/leituras/:clienteId', authMiddleware, checkRole(['gestorOperacoes',
 });
 
 // Buscar clientes com instalação validada
-router.get('/clientes/instalacoes-validadas', authMiddleware, checkRole('gestorOperacoes'), async (req, res) => {
+router.get('/clientes/instalacoes-validadas', authMiddleware, async (req, res) => {
   try {
     const instalacoesValidadas = await Instalacao.find({ status: 'validado' }).select('clienteId');
     const clienteIds = [...new Set(instalacoesValidadas.map(i => i.clienteId.toString()))];

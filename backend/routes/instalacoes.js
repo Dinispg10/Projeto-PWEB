@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Instalacao = require('../models/Instalacao');
 const Certificado = require('../models/Certificado');
-const authMiddleware = require('../middleware/authMiddleware'); // o teu middleware
+const authMiddleware = require('../middleware/authMiddleware'); 
 
 function autenticarCliente(req, res, next) {
   if (!req.user || req.user.role !== 'cliente') {
@@ -49,11 +49,11 @@ router.get('/', authMiddleware, async (req, res) => {
   try {
     const clienteId = req.user._id;
     const instalacoes = await Instalacao.find({ clienteId })
-      .populate('certificadoId'); // tenta popular
+      .populate('certificadoId'); 
 
     res.json(instalacoes);
   } catch (err) {
-    console.error("ERRO AO OBTER INSTALAÇÕES:", err); // <-- isto é essencial
+    console.error("ERRO AO OBTER INSTALAÇÕES:", err); 
     res.status(500).json({ error: 'Erro ao obter instalações.' });
   }
 });

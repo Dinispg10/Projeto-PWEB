@@ -23,7 +23,7 @@ body {
   margin-bottom: 30px;
 }
 
-h2#mensaem {
+h2#mensagem {
   margin: 0 0 20px 0;
   font-weight: 700;
   color: #FF4B2B;
@@ -92,4 +92,28 @@ button:hover {
   button {
     width: 100%;
   }
+}
+
+/* Botão "Sair" diferente dos outros */
+button#btnLogout {
+  background-color: #666;
+  margin-top: 30px; /* espaçamento para afastar dos conteúdos acima */
+  border-color: #666;
+}
+
+button#btnLogout:hover {
+  background-color: #444;
+  border-color: #444;
+}
+
+/* Garante que a lista fique dentro do container */
+#listaPendentes {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  overflow: hidden; /* evita que conteúdo vaze para fora */
+  box-sizing: border-box; /* para incluir padding dentro da largura */
 }
