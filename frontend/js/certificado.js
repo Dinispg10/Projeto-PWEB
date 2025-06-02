@@ -43,7 +43,6 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {
 
     if (res.ok) {
       alert(data.msg);
-      // Opcional: redirecionar para a página de técnicos
       window.location.href = 'tecnico.html';
     } else {
       alert(data.msg || 'Erro no envio do certificado.');

@@ -21,7 +21,7 @@ window.onload = async () => {
 
     const instalacoes = await res.json();
     const lista = document.getElementById('instalacoesLista');
-    lista.innerHTML = ''; // Limpa a lista antes de adicionar
+    lista.innerHTML = ''; 
 
     instalacoes.forEach(inst => {
       const li = document.createElement('li');

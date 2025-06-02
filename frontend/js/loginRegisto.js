@@ -35,7 +35,6 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
       sessionStorage.setItem('token', token);
       sessionStorage.setItem('role', role);
       sessionStorage.setItem('username', data.user.username);
-      // Corrigido aqui: usar data.user._id para o userId
       sessionStorage.setItem('userId', data.user._id);
 
       if (role === 'cliente') {

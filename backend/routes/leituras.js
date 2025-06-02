@@ -46,7 +46,7 @@ router.post('/leituras/mock', authMiddleware, async (req, res) => {
   }
 });
 
-// Listar todas as leituras de um cliente (com validação de acesso)
+
 router.get('/leituras/:clienteId', authMiddleware, async (req, res) => {
   try {
     const clienteIdParam = req.params.clienteId;
@@ -66,7 +66,7 @@ router.get('/leituras/:clienteId', authMiddleware, async (req, res) => {
   }
 });
 
-// Buscar clientes com instalação validada
+
 router.get('/clientes/instalacoes-validadas', authMiddleware, async (req, res) => {
   try {
     const instalacoesValidadas = await Instalacao.find({ status: 'validado' }).select('clienteId');
